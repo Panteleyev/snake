@@ -19,9 +19,6 @@ namespace Snake
             Point p3 = new Point( 2, 5, '@' );
             p3.Draw();
 
-            Point p4 = new Point( 7, 2, '+' );
-            p4.Draw();
-
             List<int> numList = new List<int>();
             numList.Add( 0 );
             numList.Add( 4 );
@@ -43,9 +40,8 @@ namespace Snake
             pList.Add( p1 );
             pList.Add( p2 );
             pList.Add( p3 );
-            pList.Add( p4 );
-            pList.Add( new Point( 6, 4, '-' ) );
-            pList[ 4 ].Draw();
+            pList.Add( new Point( 6, 10, '+' ) );
+            pList.Last().Draw();
 
             foreach (Point i in pList)
             {
