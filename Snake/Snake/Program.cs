@@ -10,33 +10,34 @@ namespace Snake
     {
         static void Main( string[] args )
         {
-            Point p1 = new Point( 1, 3, '*' );
-            p1.Draw();
-
-            Point p2 = new Point( 4, 5, '#' );
-            p2.Draw();
-
-            int xStart = 10, xStep,
-                yStart = 9, yStep,
-                xTmp = xStart, yTmp = yStart;
+            int xStart = 0,
+                frameWidth = Console.BufferWidth,
+                yStart = 0,
+                frameHeight = 70,//Console.BufferHeight,
+                xTmp = xStart,
+                yTmp = yStart;
             char sym = '+';
 
-            xStep = 5;
-            HorizontalLine hLine = new HorizontalLine( xTmp, xTmp = xTmp + xStep, yTmp, sym );
+            // Отрисовка рамочки
+            Console.SetWindowSize( frameWidth, frameHeight );
+
+            HorizontalLine hLine = new HorizontalLine( xTmp, xTmp += frameWidth - 1, yTmp, sym );
             hLine.Draw();
 
-            yStep = 7;
-            VerticalLine vLine = new VerticalLine( yTmp, yTmp = yTmp + yStep, xTmp, sym );
+            VerticalLine vLine = new VerticalLine( yTmp, yTmp += frameHeight - 1, xTmp, sym );
             vLine.Draw();
 
-            xStep = -5;
-            hLine = new HorizontalLine( xTmp, xTmp = xTmp + xStep, yTmp, sym );
+            hLine = new HorizontalLine( xTmp, xTmp -= frameWidth - 1, yTmp, sym );
             hLine.Draw();
 
-            yStep = -5;
-            vLine = new VerticalLine( yTmp, yTmp = yTmp + yStep, xTmp, sym );
+            vLine = new VerticalLine( yTmp, yTmp -= frameHeight - 1, xTmp, sym );
             vLine.Draw();
 
+            // Отрисовка точек
+            Point p = new Point( 4, 5, '*' );
+            p.Draw();
+
+            Console.SetBufferSize( frameWidth, frameHeight );
             Console.ReadLine();
         }
     }

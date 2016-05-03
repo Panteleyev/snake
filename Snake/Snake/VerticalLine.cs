@@ -13,7 +13,6 @@ namespace Snake
         public VerticalLine( int yTop, int yBottom, int x, char sym )
         {
             pList = new List<Point>();
-
             if (yBottom > yTop)
             {
                 for (int y = yTop; y <= yBottom; y++)
