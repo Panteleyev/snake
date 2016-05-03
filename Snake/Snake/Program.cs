@@ -31,7 +31,7 @@ namespace Snake
             e.age = 20;
             e.pay = 170000;
 
-            Console.ReadLine();
+            //Console.ReadLine();// Ctrl + F5
         }
     }
 }
