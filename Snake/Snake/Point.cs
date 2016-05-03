@@ -23,34 +23,12 @@ namespace Snake
             sym = _sym;
         }
 
-        public Point( Point p )
+        public Point( Point p ) : this( p.x, p.y, p.sym )
         {
-            x = p.x;
-            y = p.y;
-            sym = p.sym;
         }
 
         public void Move( int offset, Direction direction )
         {
-            /*
-            if (direction == Direction.RIGHT)
-            {
-                x += offset;
-            }
-            else if (direction == Direction.LEFT)
-            {
-                x -= offset;
-            }
-            else if (direction == Direction.UP)
-            {
-                y -= offset;
-            }
-            else if (direction == Direction.DOWN)
-            {
-                y += offset;
-            }
-            /**/
-
             switch (direction)
             {
                 case Direction.RIGHT:
@@ -66,7 +44,6 @@ namespace Snake
                     y += offset;
                     break;
             }
-            /**/
         }
 
         public void Draw()
