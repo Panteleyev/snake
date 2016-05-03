@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Human
+    enum Direction
     {
-        public int age; // возраст
-
-        public Human()
-        {
-            age = 30;
-        }
+        LEFT,
+        RIGHT,
+        UP,
+        DOWN
     }
 }

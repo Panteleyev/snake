@@ -22,14 +22,12 @@ namespace Snake
             downLine.Draw();
             leftLine.Draw();
             rightLine.Draw();
-            
+
             // Отрисовка точек
             Point p = new Point( 4, 5, '*' );
-            p.Draw();
-
-            Emploee e = new Emploee();
-            e.age = 20;
-            e.pay = 170000;
+            //p.Draw();
+            Snake snake = new Snake( p, 4, Direction.RIGHT );
+            snake.Draw();
 
             //Console.ReadLine();// Ctrl + F5
         }
