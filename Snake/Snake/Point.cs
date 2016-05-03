@@ -51,5 +51,16 @@ namespace Snake
             Console.SetCursorPosition( x, y );
             Console.Write( sym );
         }
+
+        internal void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
+
+        public override string ToString()
+        {
+            return x + ", " + y + ", " + sym;
+        }
     }
 }
