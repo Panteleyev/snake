@@ -16,37 +16,26 @@ namespace Snake
             Point p2 = new Point( 4, 5, '#' );
             p2.Draw();
 
-            Point p3 = new Point( 2, 5, '@' );
-            p3.Draw();
+            int xStart = 10, xStep,
+                yStart = 9, yStep,
+                xTmp = xStart, yTmp = yStart;
+            char sym = '+';
 
-            List<int> numList = new List<int>();
-            numList.Add( 0 );
-            numList.Add( 4 );
-            numList.Add( 5 );
-            numList.Add( 6 );
+            xStep = 5;
+            HorizontalLine hLine = new HorizontalLine( xTmp, xTmp = xTmp + xStep, yTmp, sym );
+            hLine.Draw();
 
-            int x = numList[ 0 ];
-            int y = numList[ 1 ];
-            int z = numList[ 2 ];
+            yStep = 7;
+            VerticalLine vLine = new VerticalLine( yTmp, yTmp = yTmp + yStep, xTmp, sym );
+            vLine.Draw();
 
-            foreach (int i in numList)
-            {
-                Console.WriteLine( i );
-            }
+            xStep = -5;
+            hLine = new HorizontalLine( xTmp, xTmp = xTmp + xStep, yTmp, sym );
+            hLine.Draw();
 
-            numList.RemoveAt( 1 );
-
-            List<Point> pList = new List<Point>();
-            pList.Add( p1 );
-            pList.Add( p2 );
-            pList.Add( p3 );
-            pList.Add( new Point( 6, 10, '+' ) );
-            pList.Last().Draw();
-
-            foreach (Point i in pList)
-            {
-                Console.WriteLine( "[" + i.x + ":" + i.y + "]: " + i.sym );
-            }
+            yStep = -5;
+            vLine = new VerticalLine( yTmp, yTmp = yTmp + yStep, xTmp, sym );
+            vLine.Draw();
 
             Console.ReadLine();
         }
