@@ -14,6 +14,7 @@ namespace Snake
             // Отрисовка рамочки
             Console.SetBufferSize( 80, 25 );
             //Console.SetWindowSize( 80, 25 );
+            Console.CursorVisible = false;
 
             HorizontalLine upLine = new HorizontalLine( 0, 78, 0, '+' );
             HorizontalLine downLine = new HorizontalLine( 0, 78, 24, '+' );
@@ -30,7 +31,9 @@ namespace Snake
             Snake snake = new Snake( p, 4, Direction.RIGHT );
             snake.Draw();
             snake.Move();
-            Thread.Sleep( 300 );
+            System.Threading.Thread.Sleep( 300 );
+            snake.Move();
+            System.Threading.Thread.Sleep( 300 );
             snake.Move();
             Thread.Sleep( 300 );
             snake.Move();
@@ -41,9 +44,6 @@ namespace Snake
             Thread.Sleep( 300 );
             snake.Move();
             Thread.Sleep( 300 );
-            snake.Move();
-            Thread.Sleep( 300 );
-
 
             //Console.ReadLine();// Ctrl + F5
         }
