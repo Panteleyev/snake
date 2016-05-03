@@ -10,34 +10,27 @@ namespace Snake
     {
         static void Main( string[] args )
         {
-            int xStart = 0,
-                frameWidth = Console.BufferWidth,
-                yStart = 0,
-                frameHeight = 70,//Console.BufferHeight,
-                xTmp = xStart,
-                yTmp = yStart;
-            char sym = '+';
-
             // Отрисовка рамочки
-            Console.SetWindowSize( frameWidth, frameHeight );
+            Console.SetBufferSize( 80, 25 );
+            //Console.SetWindowSize( 80, 25 );
 
-            HorizontalLine hLine = new HorizontalLine( xTmp, xTmp += frameWidth - 1, yTmp, sym );
-            hLine.Draw();
-
-            VerticalLine vLine = new VerticalLine( yTmp, yTmp += frameHeight - 1, xTmp, sym );
-            vLine.Draw();
-
-            hLine = new HorizontalLine( xTmp, xTmp -= frameWidth - 1, yTmp, sym );
-            hLine.Draw();
-
-            vLine = new VerticalLine( yTmp, yTmp -= frameHeight - 1, xTmp, sym );
-            vLine.Draw();
-
+            HorizontalLine upLine = new HorizontalLine( 0, 78, 0, '+' );
+            HorizontalLine downLine = new HorizontalLine( 0, 78, 24, '+' );
+            VerticalLine leftLine = new VerticalLine( 0, 24, 0, '+' );
+            VerticalLine rightLine = new VerticalLine( 0, 24, 78, '+' );
+            upLine.Draw();
+            downLine.Draw();
+            leftLine.Draw();
+            rightLine.Draw();
+            
             // Отрисовка точек
             Point p = new Point( 4, 5, '*' );
             p.Draw();
 
-            Console.SetBufferSize( frameWidth, frameHeight );
+            Emploee e = new Emploee();
+            e.age = 20;
+            e.pay = 170000;
+
             Console.ReadLine();
         }
     }
