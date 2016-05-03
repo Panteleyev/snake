@@ -25,12 +25,17 @@ namespace Snake
         internal void Move()
         {
             Point tail = pList.First();
-            pList.Remove( tail );
+            //pList.Remove( tail );
             Point head = GetNextPoint();
-            pList.Add( head );
+            if (head.x < 78 && head.x > 0 && head.y < 24 && head.y > 0)
+            {
+                pList.Remove( tail );
+                pList.Add( head );
 
-            tail.Clear();
-            head.Draw();
+                tail.Clear();
+                head.Draw();
+            }
+
         }
 
         private Point GetNextPoint()
@@ -44,30 +49,14 @@ namespace Snake
 
         internal void HandleKey( ConsoleKey key )
         {
-            if (key == ConsoleKey.LeftArrow)
+            if (key == ConsoleKey.LeftArrow && direction != Direction.RIGHT)
                 direction = Direction.LEFT;
-            else if (key == ConsoleKey.RightArrow)
+            else if (key == ConsoleKey.RightArrow && direction != Direction.LEFT)
                 direction = Direction.RIGHT;
-            else if (key == ConsoleKey.UpArrow)
+            else if (key == ConsoleKey.UpArrow && direction != Direction.DOWN)
                 direction = Direction.UP;
-            else if (key == ConsoleKey.DownArrow)
+            else if (key == ConsoleKey.DownArrow && direction != Direction.UP)
                 direction = Direction.DOWN;
-
-            /*switch (key)
-            {
-                case ConsoleKey.LeftArrow:
-                    direction = Direction.LEFT;
-                    break;
-                case ConsoleKey.RightArrow:
-                    direction = Direction.RIGHT;
-                    break;
-                case ConsoleKey.UpArrow:
-                    direction = Direction.UP;
-                    break;
-                case ConsoleKey.DownArrow:
-                    direction = Direction.DOWN;
-                    break;
-            }*/
         }
     }
 }

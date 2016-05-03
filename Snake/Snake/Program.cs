@@ -35,7 +35,8 @@ namespace Snake
             {
                 if (Console.KeyAvailable)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
+                    ConsoleKeyInfo key = Console.ReadKey( true );
+                    while (Console.KeyAvailable) key = Console.ReadKey( true ); // во избежании очереди за новым направлением
                     snake.HandleKey( key.Key );
                 }
                 Thread.Sleep( 100 );
