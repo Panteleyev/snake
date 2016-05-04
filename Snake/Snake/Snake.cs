@@ -22,12 +22,12 @@ namespace Snake
             }
         }
 
-        internal void Move()
+        internal void Move(int frameWidth , int frameHeight )
         {
             Point tail = pList.First();
             //pList.Remove( tail );
             Point head = GetNextPoint();
-            if (head.x < 78 && head.x > 0 && head.y < 24 && head.y > 0)
+            if (head.x < frameWidth-2 && head.x > 0 && head.y < frameHeight-1 && head.y > 0)
             {
                 pList.Remove( tail );
                 pList.Add( head );
@@ -66,6 +66,7 @@ namespace Snake
             if (head.IsHit( food ))
             {
                 food.sym = head.sym;
+                food.Draw();
                 pList.Add( food );
                 return true;
             }
