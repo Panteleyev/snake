@@ -43,7 +43,6 @@ namespace Snake
             {
                 if (snake.eat( food ))
                 {
-                    //food.Draw();// из-за бага с отображениеме новой еды
                     food = foodCreator.CreateFood();
                     food.Draw();
                 }

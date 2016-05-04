@@ -18,9 +18,9 @@ namespace Snake
 
         public Point( int _x, int _y, char _sym )
         {
-            x = _x;
-            y = _y;
-            sym = _sym;
+            this.x = _x;
+            this.y = _y;
+            this.sym = _sym;
         }
 
         public Point( Point p ) : this( p.x, p.y, p.sym )
