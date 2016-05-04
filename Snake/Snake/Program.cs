@@ -41,8 +41,8 @@ namespace Snake
                 if (walls.IsHit( snake ) || snake.IsHitTail())
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine( "GAME OVER!" );
-                    Console.ReadLine();
+                    Console.Write( "GAME OVER!" );
+                    Console.Read();
                     break;
                 }
                 if (snake.Eat( food ))
@@ -52,7 +52,7 @@ namespace Snake
                 }
                 else
                 {
-                    snake.Move( frameWidth, frameHeight );
+                    snake.Move();
                 }
                 Thread.Sleep( 100 );
 

@@ -22,20 +22,16 @@ namespace Snake
             }
         }
 
-        internal void Move( int frameWidth, int frameHeight )
+        internal void Move()
         {
             Point tail = pList.First();
             //pList.Remove( tail );
             Point head = GetNextPoint();
-            if (head.x < frameWidth - 2 && head.x > 0 && head.y < frameHeight - 1 && head.y > 0)
-            {
-                pList.Remove( tail );
-                pList.Add( head );
+            pList.Remove( tail );
+            pList.Add( head );
 
-                tail.Clear();
-                head.Draw();
-            }
-
+            tail.Clear();
+            head.Draw();
         }
 
         private Point GetNextPoint()
