@@ -11,12 +11,12 @@ namespace Snake
     {
         static void Main( string[] args )
         {
-            int frameWidth = 10,
-                frameHeight = 10;
+            int frameWidth = 80,
+                frameHeight = 25;
 
             // Отрисовка рамочки
-//            Console.SetBufferSize( frameWidth, frameHeight );
-            //Console.SetWindowSize( frameWidth, frameHeight );
+            Console.SetBufferSize( frameWidth, frameHeight );
+            Console.SetWindowSize( frameWidth, frameHeight );
             Console.CursorVisible = false;
 
             HorizontalLine upLine = new HorizontalLine( 0, frameWidth - 2, 0, '+' );
@@ -36,7 +36,7 @@ namespace Snake
 
             // Создаем еду
             FoodCreator foodCreator = new FoodCreator( frameWidth, frameHeight, '$' );
-            Point food = foodCreator.CreateFood( snake.getPlist() );
+            Point food = foodCreator.CreateFood();
             food.Draw();
 
             while (true)
@@ -44,7 +44,7 @@ namespace Snake
                 if (snake.eat( food ))
                 {
                     //food.Draw();// из-за бага с отображениеме новой еды
-                    food = foodCreator.CreateFood( snake.getPlist() );
+                    food = foodCreator.CreateFood();
                     food.Draw();
                 }
                 else

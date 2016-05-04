@@ -21,24 +21,11 @@ namespace Snake
             this.sym = sym;
         }
 
-        internal Point CreateFood( List<Point> snakePList )
+        internal Point CreateFood()
         {
-            int x, y;
-            Point p;
-
-            //Создание данных о новой еде с учетом данных о змейке
-            do
-            {
-                x = random.Next( 2, mapWidth - 2 );
-                y = random.Next( 2, mapHeight - 2 );
-                p = new Point( x, y, sym );
-            } while (snakePList.Contains( p ));
-
-            return p;
-
-            //int x = random.Next( 2, mapWidth - 2 );
-            //int y = random.Next( 2, mapHeight - 2 );
-            //return new Point( x, y, sym );
+            int x = random.Next( 2, mapWidth - 2 );
+            int y = random.Next( 2, mapHeight - 2 );
+            return new Point( x, y, sym );
         }
     }
 }
