@@ -15,7 +15,7 @@ namespace Snake
                 frameHeight = 10;
 
             // Отрисовка рамочки
-            //            Console.SetBufferSize( frameWidth, frameHeight );
+//            Console.SetBufferSize( frameWidth, frameHeight );
             //Console.SetWindowSize( frameWidth, frameHeight );
             Console.CursorVisible = false;
 
