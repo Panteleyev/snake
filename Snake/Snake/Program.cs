@@ -36,15 +36,14 @@ namespace Snake
 
             // Создаем еду
             FoodCreator foodCreator = new FoodCreator( frameWidth, frameHeight, '$' );
-            Point food = foodCreator.CreateFood();
+            Point food = foodCreator.CreateFood( snake.getPlist() );
             food.Draw();
 
             while (true)
             {
                 if (snake.eat( food ))
                 {
-                    //food.Draw();// из-за бага с отображениеме новой еды
-                    food = foodCreator.CreateFood();
+                    food = foodCreator.CreateFood( snake.getPlist() );
                     food.Draw();
                 }
                 else

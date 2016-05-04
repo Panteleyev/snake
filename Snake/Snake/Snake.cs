@@ -59,15 +59,24 @@ namespace Snake
                 direction = Direction.DOWN;
         }
 
+        internal List<Point> getPlist()
+        {
+            return pList;
+        }
+
         internal bool eat( Point food )
         {
             Point head = GetNextPoint();
+            //Point head = pList.Last();// от комментатора
+            
             //if (head.x == food.x && head.y == food.y)
             if (head.IsHit( food ))
             {
                 food.sym = head.sym;
-                food.Draw();
-                pList.Add( food );
+                //food.Draw();// перерисовка поглащенной еды
+
+                pList.Insert( 0, food );// съеденная еда появляется сразу, а не в хвосте
+                //pList.Add( food );
                 return true;
             }
             else
