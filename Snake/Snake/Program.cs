@@ -14,6 +14,9 @@ namespace Snake
             int frameWidth = 80,
                 frameHeight = 25;
 
+            Console.WriteLine( "Нажмите enter, чтобы начать" );
+            Console.ReadLine();
+
             // Отрисовка рамочки
             Console.SetBufferSize( frameWidth, frameHeight );
             Console.SetWindowSize( frameWidth, frameHeight );
