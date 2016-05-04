@@ -22,12 +22,12 @@ namespace Snake
             }
         }
 
-        internal void Move(int frameWidth , int frameHeight )
+        internal void Move( int frameWidth, int frameHeight )
         {
             Point tail = pList.First();
             //pList.Remove( tail );
             Point head = GetNextPoint();
-            if (head.x < frameWidth-2 && head.x > 0 && head.y < frameHeight-1 && head.y > 0)
+            if (head.x < frameWidth - 2 && head.x > 0 && head.y < frameHeight - 1 && head.y > 0)
             {
                 pList.Remove( tail );
                 pList.Add( head );
@@ -59,15 +59,24 @@ namespace Snake
                 direction = Direction.DOWN;
         }
 
+        internal List<Point> getPlist()
+        {
+            return pList;
+        }
+
         internal bool eat( Point food )
         {
             Point head = GetNextPoint();
+            //Point head = pList.Last();// от комментатора
+
             //if (head.x == food.x && head.y == food.y)
             if (head.IsHit( food ))
             {
                 food.sym = head.sym;
-                food.Draw();
-                pList.Add( food );
+                //food.Draw();// перерисовка поглащенной еды
+
+                pList.Insert( 0, food );// съеденная еда появляется сразу, а не в хвосте
+                //pList.Add( food );
                 return true;
             }
             else
