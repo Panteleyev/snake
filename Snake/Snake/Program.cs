@@ -22,14 +22,8 @@ namespace Snake
             Console.SetWindowSize( frameWidth, frameHeight );
             Console.CursorVisible = false;
 
-            HorizontalLine upLine = new HorizontalLine( 0, frameWidth - 2, 0, '+' );
-            HorizontalLine downLine = new HorizontalLine( 0, frameWidth - 2, frameHeight - 1, '+' );
-            VerticalLine leftLine = new VerticalLine( 0, frameHeight - 1, 0, '+' );
-            VerticalLine rightLine = new VerticalLine( 0, frameHeight - 1, frameWidth - 2, '+' );
-            upLine.Draw();
-            downLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
+            Walls walls = new Walls( frameWidth, frameHeight );
+            walls.Draw();
 
             // Отрисовка точек
             Point p = new Point( 4, 5, '*' );
@@ -44,7 +38,14 @@ namespace Snake
 
             while (true)
             {
-                if (snake.eat( food ))
+                if (walls.IsHit( snake ) || snake.IsHitTail())
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine( "GAME OVER!" );
+                    Console.ReadLine();
+                    break;
+                }
+                if (snake.Eat( food ))
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
@@ -62,8 +63,6 @@ namespace Snake
                     snake.HandleKey( key.Key );
                 }
             }
-
-            //Console.ReadLine();// Ctrl + F5
         }
     }
 }
