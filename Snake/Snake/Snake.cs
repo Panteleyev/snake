@@ -43,6 +43,11 @@ namespace Snake
             return nextPoint;
         }
 
+        internal Point getPointHead()
+        {
+            return pList.Last();
+        }
+
         internal bool IsHitTail()
         {
             var head = pList.Last();

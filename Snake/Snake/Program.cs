@@ -38,7 +38,7 @@ namespace Snake
 
             while (true)
             {
-                if (walls.IsHit( snake ) || snake.IsHitTail())
+                if (walls.IsHit( snake.getPointHead() ) || snake.IsHitTail())
                 {
                     Console.BackgroundColor = ConsoleColor.DarkRed;
                     Console.Write( "GAME OVER!" );

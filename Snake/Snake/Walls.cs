@@ -28,11 +28,11 @@ namespace Snake
             }
         }
 
-        internal bool IsHit( Figure figure )
+        internal bool IsHit( Point point )
         {
             foreach (var wall in wallList)
             {
-                if (wall.IsHit( figure ))
+                if (wall.IsHit( point ))
                     return true;
             }
             return false;
