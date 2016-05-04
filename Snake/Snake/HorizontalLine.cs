@@ -22,11 +22,6 @@ namespace Snake
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
 
-            //foreach (Point p in pList)
-            //{
-            //    p.Draw();
-            //}
-
             base.Draw();
 
             Console.ForegroundColor = ConsoleColor.White;
