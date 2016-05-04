@@ -14,14 +14,14 @@ namespace Snake
             int frameWidth = 80,
                 frameHeight = 25;
 
-            Console.WriteLine( "Нажмите enter, чтобы начать" );
+            Console.WriteLine( "Press [Enter] to start the game!" );
             Console.ReadLine();
 
-            // Отрисовка рамочки
             Console.SetBufferSize( frameWidth, frameHeight );
             Console.SetWindowSize( frameWidth, frameHeight );
             Console.CursorVisible = false;
 
+            // Отрисовка рамочки
             Walls walls = new Walls( frameWidth, frameHeight );
             walls.Draw();
 
@@ -40,9 +40,6 @@ namespace Snake
             {
                 if (walls.IsHit( snake.getPointHead() ) || snake.IsHitTail())
                 {
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.Write( "GAME OVER!" );
-                    Console.Read();
                     break;
                 }
                 if (snake.Eat( food ))
@@ -63,6 +60,27 @@ namespace Snake
                     snake.HandleKey( key.Key );
                 }
             }
+
+            WriteGameOver( 25, 8 );
+            Console.Read();
+        }
+
+        static void WriteGameOver( int xOffset, int yOffset )
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.SetCursorPosition( xOffset, yOffset++ );
+            WriteText( "============================", xOffset, yOffset++ );
+            WriteText( "G A M E   O V E R", xOffset + 5, yOffset++ );
+            yOffset++;
+            WriteText( "Author: Gleb Panteleyev", xOffset + 2, yOffset++ );
+            WriteText( "Special for GeekBrains", xOffset + 2, yOffset++ );
+            WriteText( "============================", xOffset, yOffset++ );
+        }
+
+        static void WriteText( string text, int xOffset, int yOffset )
+        {
+            Console.SetCursorPosition( xOffset, yOffset );
+            Console.WriteLine( text );
         }
     }
 }

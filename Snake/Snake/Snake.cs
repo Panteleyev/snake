@@ -34,7 +34,7 @@ namespace Snake
             head.Draw();
         }
 
-        private Point GetNextPoint()
+        Point GetNextPoint()
         {
             // Point head = pList.Last();
             Point nextPoint = new Point( pList.Last() );
