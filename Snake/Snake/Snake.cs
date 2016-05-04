@@ -68,7 +68,7 @@ namespace Snake
         {
             Point head = GetNextPoint();
             //Point head = pList.Last();// от комментатора
-
+            
             //if (head.x == food.x && head.y == food.y)
             if (head.IsHit( food ))
             {
